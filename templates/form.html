@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+ <div class="container" id="grad1">
+      <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+          <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+              <h2><strong>Covid-19 Predictor</strong></h2>
+              <p>Fill all form field all the fields</p>
+              <div class="row">
+                  <div class="col-md-12 mx-0">
+                        <form id="msform" action="{{ url_for('predict')}}"method="post">
+                          <!-- progressbar -->
+                          <ul id="progressbar">
+                              <li class="active" id="account"><strong>Purpose</strong></li>
+                              <li id="personal"><strong>About you & Diagnosis</strong></li>
+                              <li id="confirm"><strong>Finish</strong></li>
+                          </ul> <!-- fieldsets -->
+                          <fieldset>
+                              <div class="form-card">
+                                  <h2 class="fs-title">Purpose</h2> 
+                                  <p>This form is to help planning for the population of a region. It is not for providing individual advice. It does not replace NHS 111 or 999. If you want individual advice please use the 111 Online form.
+                                  </p>
+                                    This service does not replace diagnostic testing.
+                                    <p>
+                                    By allowing people to self report symptoms and diagnosis of COVID-19 our researchers will build up a better picture of the number of people who have contracted the COVID-19 virus and use this information to plan regional services. We may also use this information for ethically approved research for the NHS. Further details about how we will use this data are available in the data processing policy.
+                                    </p>
+                                    <p>
+                                    Having trouble with the form?  Please email help@covidSymChecker.com
+                                  </p>
+                              </div> <button type="button" name="next" class="next action-button">Next Step</button>
+                          </fieldset>
+                          <fieldset>
+                              <div class="form-card">
+                                  <h2 class="fs-title">About you & Diagnosis</h2> 
+                                  <h6>Main Input For Receiving Query to our ML --></h6>
+                                    <p>Please select your Age:</p> 
+                                    <input id="number" type="number" min="0" step="1" max="100" name="Age" required="required" />
+                                    <p>Please select your gender:</p>
+                                    <input type="radio" id="male" name="Gender" value="1" required="required">
+                                    <label for="male">Male</label>
+                                    <input type="radio" id="female" name="Gender"  value="0" required="required">
+                                    <label for="female">Female</label>
+                                    <p>Fever:</p>
+                                    <input type="radio" id="yes" name="Fever" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Fever"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Cough:</p>
+                                    <input type="radio" id="yes" name="Cough" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Cough"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Fatigue:</p>
+                                    <input type="radio" id="yes" name="Fatigue" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Fatigue"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Pains:</p>
+                                    <input type="radio" id="yes" name="Pains" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Pains"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Nasal:</p>
+                                    <input type="radio" id="yes" name="Nasal" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Nasal"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Shortness of Breath:</p>
+                                    <input type="radio" id="yes" name="Shortness of Breath" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Shortness of Breath"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Runny Nose:</p>
+                                    <input type="radio" id="yes" name="Runny Nose" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Runny Nose"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Sore Throat:</p>
+                                    <input type="radio" id="yes" name="Sore Throat" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Sore Throat"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Diarrhea:</p>
+                                    <input type="radio" id="yes" name="Diarrhea" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Diarrhea"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Chills:</p>
+                                    <input type="radio" id="yes" name="Chills" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Chills"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Headache:</p>
+                                    <input type="radio" id="yes" name="Headache" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Headache"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Vomiting:</p>
+                                    <input type="radio" id="yes" name="Vomiting" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Vomiting"  value="0" required="required">
+                                    <label for="es">No</label>
+                                    <p>Lives in affected area:</p>
+                                    <input type="radio" id="yes" name="Lives in affected area" value="1" required="required">
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" id="no" name="Lives in affected area"  value="0" required="required">
+                                    <label for="es">No</label>
+                            
+                                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict Disease</button>
+                              </div> 
+                              {{ prediction_text }}
+                              <button type="button" name="previous" class="previous action-button-previous">Previous</button>
+                          </fieldset>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+
+{% endblock %}
